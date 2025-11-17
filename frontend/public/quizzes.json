@@ -1,0 +1,430 @@
+{
+  "quiz": [
+    [
+      {
+        "id": 1,
+        "text": "Kiedy uczysz się nowego zagadnienia, najczęściej:",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Próbuję to zrobić samodzielnie",
+            "style": "kinesthetic"
+          },
+          {
+            "letter": "B",
+            "text": "Tworzę schematy lub rysunki",
+            "style": "visual"
+          },
+          {
+            "letter": "C",
+            "text": "Słucham wytłumaczenia lub dyskusji",
+            "style": "auditory"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "text": "Gdy zapamiętuję instrukcje, najskuteczniejsze jest dla mnie:",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Wyobrażenie sobie drogi lub schematu",
+            "style": "visual"
+          },
+          {
+            "letter": "B",
+            "text": "Powtarzanie na głos",
+            "style": "auditory"
+          },
+          {
+            "letter": "C",
+            "text": "Wykonanie zadania praktycznie",
+            "style": "kinesthetic"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "text": "Podczas rozwiązywania problemu:",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Rozmawiam o problemie",
+            "style": "auditory"
+          },
+          {
+            "letter": "B",
+            "text": "Działam praktycznie lub manipuluję obiektami",
+            "style": "kinesthetic"
+          },
+          {
+            "letter": "C",
+            "text": "Rysuję lub wizualizuję kroki",
+            "style": "visual"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "text": "Kiedy uczę się do egzaminu, wolę:",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Kolorowe notatki i diagramy",
+            "style": "visual"
+          },
+          {
+            "letter": "B",
+            "text": "Nagrać siebie i odsłuchiwać materiał",
+            "style": "auditory"
+          },
+          {
+            "letter": "C",
+            "text": "Ćwiczenia praktyczne lub symulacje",
+            "style": "kinesthetic"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "text": "Gdy słucham wykładu, najlepiej przyswajam wiedzę gdy:",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Powtarzam sobie na głos",
+            "style": "auditory"
+          },
+          {
+            "letter": "B",
+            "text": "Robię notatki w formie schematów",
+            "style": "visual"
+          },
+          {
+            "letter": "C",
+            "text": "Łączę teorię z praktycznym doświadczeniem",
+            "style": "kinesthetic"
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "text": "Kiedy mam nauczyć się czegoś nowego, zazwyczaj:",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Próbuję samodzielnie wykonać zadanie",
+            "style": "kinesthetic"
+          },
+          {
+            "letter": "B",
+            "text": "Wyobrażam sobie proces w głowie",
+            "style": "visual"
+          },
+          {
+            "letter": "C",
+            "text": "Dyskutuję z innymi o temacie",
+            "style": "auditory"
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "text": "Chcąc zacząć oszczędzać, zrobiłbym to w taki sposób:",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Sprawdzał po kolei, który sposób najlepiej wychodzi",
+            "style": "kinesthetic"
+          },
+          {
+            "letter": "B",
+            "text": "Obejrzał filmik na YouTube o oszczędzaniu",
+            "style": "auditory"
+          },
+          {
+            "letter": "C",
+            "text": "Na podstawie moich danych finansowych ocenił opcje",
+            "style": "visual"
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "text": "Po kupieniu stolika z IKEA, masz kłopot z jego złożeniem. Co robisz:",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Przeglądam rysunki z instrukcji",
+            "style": "visual"
+          },
+          {
+            "letter": "B",
+            "text": "Poproszę kogoś kto lepiej się zna o pomoc",
+            "style": "kinesthetic"
+          },
+          {
+            "letter": "C",
+            "text": "Oglądam tutorial składania tego stolika",
+            "style": "auditory"
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "text": "W mojej przyszłej pracy, ważne jest to aby zawierała:",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Rozmowy z innymi, np. z klientem",
+            "style": "auditory"
+          },
+          {
+            "letter": "B",
+            "text": "Pracę z projektami, mapami lub wykresami.",
+            "style": "visual"
+          },
+          {
+            "letter": "C",
+            "text": "Możliwość wykorzystania posiadanej wiedzy",
+            "style": "kinesthetic"
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "text": "Chcesz nauczyć się nowej gry planszowej lub karcianej. Co robisz:",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Grał i uczył się w trakcie rozgrywki",
+            "style": "kinesthetic"
+          },
+          {
+            "letter": "B",
+            "text": "Poprosił kogoś o wytłumaczenie zasad",
+            "style": "auditory"
+          },
+          {
+            "letter": "C",
+            "text": "Przeczytał instrukcję",
+            "style": "visual"
+          }
+        ]
+      }
+    ]
+  ],
+  "quiz2": [
+    [
+      {
+        "id": 1,
+        "text": "Kiedy poznajesz nowy przepis, najpierw:",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Idę do kuchni i próbuję od razu przygotować",
+            "style": "kinesthetic"
+          },
+          {
+            "letter": "B",
+            "text": "Zastanawiam się, jak będą wyglądać poszczególne etapy",
+            "style": "visual"
+          },
+          {
+            "letter": "C",
+            "text": "Proszę kogoś, żeby mi go wytłumaczył na głos",
+            "style": "auditory"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "text": "Kiedy musisz zapamiętać numer telefonu, najskuteczniej:",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Zapisuję go na kartce lub w telefonie",
+            "style": "visual"
+          },
+          {
+            "letter": "B",
+            "text": "Powtarzam go kilka razy na głos",
+            "style": "auditory"
+          },
+          {
+            "letter": "C",
+            "text": "Piszę go w powietrzu palcem lub na stole",
+            "style": "kinesthetic"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "text": "Kiedy uczysz się języka obcego, najlepiej przyswajasz słownictwo:",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Przez oglądanie filmów z napisami",
+            "style": "visual"
+          },
+          {
+            "letter": "B",
+            "text": "Przez rozmowy z native speakerami",
+            "style": "auditory"
+          },
+          {
+            "letter": "C",
+            "text": "Przez pisanie słówek i używanie ich w praktyce",
+            "style": "kinesthetic"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "text": "Podczas nauki historii, najlepiej zapamiętujesz:",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Tworząc czasopismo z wydarzeniami i obrazami",
+            "style": "visual"
+          },
+          {
+            "letter": "B",
+            "text": "Wysłuchując podcastów lub audiobooków",
+            "style": "auditory"
+          },
+          {
+            "letter": "C",
+            "text": "Przez odwiedzanie muzeów lub rekonstrukcje historyczne",
+            "style": "kinesthetic"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "text": "Kiedy musisz zrozumieć złożony proces (np. jak działa komputer), najpierw:",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Szukam schematu lub diagramu blokowego",
+            "style": "visual"
+          },
+          {
+            "letter": "B",
+            "text": "Pytam kogoś, żeby mi to wytłumaczył krok po kroku",
+            "style": "auditory"
+          },
+          {
+            "letter": "C",
+            "text": "Próbuję samodzielnie zmontować coś podobnego",
+            "style": "kinesthetic"
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "text": "Kiedy uczysz się nowego oprogramowania, preferujesz:",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Czytanie podręcznika lub instrukcji",
+            "style": "visual"
+          },
+          {
+            "letter": "B",
+            "text": "Słuchanie tutoriali audio lub wykładów",
+            "style": "auditory"
+          },
+          {
+            "letter": "C",
+            "text": "Natychmiastowe eksperymentowanie z funkcjami",
+            "style": "kinesthetic"
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "text": "Kiedy planujesz wycieczkę, najpierw:",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Rysuję mapę trasy i zaznaczam punkty",
+            "style": "visual"
+          },
+          {
+            "letter": "B",
+            "text": "Rozmawiam z przyjaciółmi o ich doświadczeniach",
+            "style": "auditory"
+          },
+          {
+            "letter": "C",
+            "text": "Sprawdzam, gdzie mogę zatrzymać się i co mogę zrobić na miejscu",
+            "style": "kinesthetic"
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "text": "Kiedy musisz nauczyć się tanca, najskuteczniej:",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Obserwuję filmy z krokami",
+            "style": "visual"
+          },
+          {
+            "letter": "B",
+            "text": "Słuchasz instrukcji na lekcji i powtarzasz je w głowie",
+            "style": "auditory"
+          },
+          {
+            "letter": "C",
+            "text": "Od razu zaczynasz poruszać się i próbujesz krok po kroku",
+            "style": "kinesthetic"
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "text": "W swojej idealnej pracy, najbardziej cenisz:",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Możliwość tworzenia prezentacji i grafik",
+            "style": "visual"
+          },
+          {
+            "letter": "B",
+            "text": "Częste rozmowy i współpraca z zespołem",
+            "style": "auditory"
+          },
+          {
+            "letter": "C",
+            "text": "Praktyczne zadania – budowanie, naprawianie, eksperymentowanie",
+            "style": "kinesthetic"
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "text": "Kiedy musisz nauczyć się nowego narzędzia (np. drukarki 3D), najpierw:",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Przeczytasz instrukcję z rysunkami",
+            "style": "visual"
+          },
+          {
+            "letter": "B",
+            "text": "Zadzwonisz do wsparcia technicznego i zapytasz o kroki",
+            "style": "auditory"
+          },
+          {
+            "letter": "C",
+            "text": "Zaczniesz eksperymentować z materiałem, nawet jeśli nie wiesz dokładnie jak",
+            "style": "kinesthetic"
+          }
+        ]
+      }
+    ]
+  ]
+}

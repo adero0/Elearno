@@ -1,7 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from "axios"
+import { useNavigate } from 'react-router-dom';
 
+// Define the AppUser type
+interface AppUser {
+    id: number;
+    username: string;
+    hasTakenQuiz: boolean;
+    visual: number;
+    auditory: number;
+    kinesthetic: number;
+}
+
+// Update the mapResultToPolish function
 function mapResultToPolish(result: LearningStyle | null) {
     switch (result) {
         case "visual": return "wzrokowiec";
@@ -11,148 +24,120 @@ function mapResultToPolish(result: LearningStyle | null) {
     }
 }
 
+// Define the LearningStyle type and Quiz interfaces
 type LearningStyle = "visual" | "auditory" | "kinesthetic";
+
+interface Option {
+    letter: string;
+    text: string;
+    style: LearningStyle;
+}
 
 interface Question {
     id: number;
     text: string;
-    options: { letter: string; text: string; style: LearningStyle }[];
+    options: Option[];
 }
 
-const questions: Question[] = [
-    {
-        id: 1,
-        text: "Kiedy uczysz się nowego zagadnienia, najczęściej:",
-        options: [
-            { letter: "A", text: "Próbuję to zrobić samodzielnie", style: "kinesthetic" },
-            { letter: "B", text: "Tworzę schematy lub rysunki", style: "visual" },
-            { letter: "C", text: "Słucham wytłumaczenia lub dyskusji", style: "auditory" },
-        ],
-    },
-    {
-        id: 2,
-        text: "Gdy zapamiętuję instrukcje, najskuteczniejsze jest dla mnie:",
-        options: [
-            { letter: "A", text: "Wyobrażenie sobie drogi lub schematu", style: "visual" },
-            { letter: "B", text: "Powtarzanie na głos", style: "auditory" },
-            { letter: "C", text: "Wykonanie zadania praktycznie", style: "kinesthetic" },
-        ],
-    },
-    {
-        id: 3,
-        text: "Podczas rozwiązywania problemu:",
-        options: [
-            { letter: "A", text: "Rozmawiam o problemie", style: "auditory" },
-            { letter: "B", text: "Działam praktycznie lub manipuluję obiektami", style: "kinesthetic" },
-            { letter: "C", text: "Rysuję lub wizualizuję kroki", style: "visual" },
-        ],
-    },
-    {
-        id: 4,
-        text: "Kiedy uczę się do egzaminu, wolę:",
-        options: [
-            { letter: "A", text: "Kolorowe notatki i diagramy", style: "visual" },
-            { letter: "B", text: "Nagrać siebie i odsłuchiwać materiał", style: "auditory" },
-            { letter: "C", text: "Ćwiczenia praktyczne lub symulacje", style: "kinesthetic" },
-        ],
-    },
-    {
-        id: 5,
-        text: "Gdy słucham wykładu, najlepiej przyswajam wiedzę gdy:",
-        options: [
-            { letter: "A", text: "Powtarzam sobie na głos", style: "auditory" },
-            { letter: "B", text: "Robię notatki w formie schematów", style: "visual" },
-            { letter: "C", text: "Łączę teorię z praktycznym doświadczeniem", style: "kinesthetic" },
-        ],
-    },
-    {
-        id: 6,
-        text: "Kiedy mam nauczyć się czegoś nowego, zazwyczaj:",
-        options: [
-            { letter: "A", text: "Próbuję samodzielnie wykonać zadanie", style: "kinesthetic" },
-            { letter: "B", text: "Wyobrażam sobie proces w głowie", style: "visual" },
-            { letter: "C", text: "Dyskutuję z innymi o temacie", style: "auditory" },
-        ],
-    },
-    {
-        id: 7,
-        text: "Chcąc zacząć oszczędzać, zrobiłbym to w taki sposób:",
-        options: [
-            { letter: "A", text: "Sprawdzał po kolei, który sposób najlepiej wychodzi", style: "kinesthetic" },
-            { letter: "B", text: "Obejrzał filmik na YouTube o oszczędzaniu", style: "auditory" },
-            { letter: "C", text: "Na podstawie moich danych finansowych ocenił opcje", style: "visual" },
-        ],
-    },
-    {
-        id: 8,
-        text: "Po kupieniu stolika z IKEA, masz kłopot z jego złożeniem. Co robisz:",
-        options: [
-            { letter: "A", text: "Przeglądam rysunki z instrukcji", style: "visual" },
-            { letter: "B", text: "Poproszę kogoś kto lepiej się zna o pomoc", style: "kinesthetic" },
-            { letter: "C", text: "Oglądam tutorial składania tego stolika", style: "auditory" },
-        ],
-    },
-    {
-        id: 9,
-        text: "W mojej przyszłej pracy, ważne jest to aby zawierała:",
-        options: [
-            { letter: "A", text: "Rozmowy z innymi, np. z klientem", style: "auditory" },
-            { letter: "B", text: "Pracę z projektami, mapami lub wykresami. ", style: "visual" },
-            { letter: "C", text: "Możliwość wykorzystania posiadanej wiedzy", style: "kinesthetic" },
-        ],
-    },
-    {
-        id: 10,
-        text: "Chcesz nauczyć się nowej gry planszowej lub karcianej. Co robisz:",
-        options: [
-            { letter: "A", text: "Grał i uczył się w trakcie rozgrywki", style: "kinesthetic" },
-            { letter: "B", text: "Poprosił kogoś o wytłumaczenie zasad", style: "auditory" },
-            { letter: "C", text: "Przeczytał instrukcję", style: "visual" },
-        ],
-    },
-];
+interface Quizes {
+    [key: string]: Question[][];
+}
 
-// {
-//         id: ,
-//         text: "",
-//         options: [
-//             { letter: "A", text: "", style: "" },
-//             { letter: "B", text: "", style: "" },
-//             { letter: "C", text: "", style: "" },
-//         ],
-//     },
+export default function LearningStyleForm({ userId, onQuizComplete }: { userId: number, onQuizComplete: (user: AppUser) => void }): React.JSX.Element {
+    // State to hold the randomly selected quiz
+    const [questions, setQuestions] = useState<Question[]>([]);
 
-export default function LearningStyleForm(): React.JSX.Element {
-    // store each question’s selected learning styles as an array
+    // State to store each question’s selected learning styles as an array
     const [responses, setResponses] = useState<Record<number, LearningStyle[]>>({});
     const [result, setResult] = useState<LearningStyle | null>(null);
+    const [formError, setFormError] = useState<string | null>(null); // Error message state
+    const navigate = useNavigate();
 
+    // Fetch the quiz data from the JSON file when the component mounts
+    useEffect(() => {
+        const fetchQuizData = async () => {
+            try {
+                const response = await fetch("/quizzes.json");
+                const data: Quizes = await response.json();
+
+                let allQuizzes: Question[][] = [];
+                for (const key in data) {
+                    if (Object.prototype.hasOwnProperty.call(data, key)) {
+                        allQuizzes = allQuizzes.concat(data[key]);
+                    }
+                }
+
+                // Randomly select one quiz from the combined array of all quizzes
+                const randomIndex = Math.floor(Math.random() * allQuizzes.length);
+                setQuestions(allQuizzes[randomIndex]);
+            } catch (error) {
+                console.error("Error loading quiz data:", error);
+            }
+        };
+
+        fetchQuizData();
+    }, []);
+
+    // Handle option change
     const handleChange = (qId: number, style: LearningStyle) => {
         const current = responses[qId] || [];
         if (current.includes(style)) {
-            // uncheck: remove from array
             setResponses({ ...responses, [qId]: current.filter((s) => s !== style) });
         } else {
-            // check: add to array
             setResponses({ ...responses, [qId]: [...current, style] });
         }
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    // Handle form submit to calculate dominant learning style
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        const counts: Record<LearningStyle, number> = { visual: 0, auditory: 0, kinesthetic: 0 };
+        // Check if every question has at least one response
+        const allQuestionsAnswered = questions.every((q) => responses[q.id]?.length > 0);
 
+        if (!allQuestionsAnswered) {
+            setFormError("Musisz odpowiedzieć na wszystkie pytania.");
+            return;
+        } else {
+            setFormError(null); // Clear error message if all questions are answered
+        }
+
+        const counts: Record<LearningStyle, number> = {visual: 0, auditory: 0, kinesthetic: 0};
+
+        // Count the responses for each learning style
         Object.values(responses).forEach((styles) => {
             styles.forEach((style) => counts[style]++);
         });
 
+        // Find the dominant learning style based on counts
         const dominant = (Object.keys(counts) as LearningStyle[]).reduce((a, b) =>
             counts[a] > counts[b] ? a : b
         );
 
         setResult(dominant);
         console.log("Counts:", counts);
+
+        const quizData = {
+            visualCount: counts.visual,
+            auditoryCount: counts.auditory,
+            kinestheticCount: counts.kinesthetic,
+            dominantStyle: dominant,
+        };
+
+        try {
+            // Send the data via POST request using Axios
+            const response = await axios.post<AppUser>(`/api/quiz/update/${userId}`, quizData);
+
+            if (response.status === 200) {
+                console.log("Quiz data submitted successfully.");
+                onQuizComplete(response.data);
+                navigate('/results', { state: { user: response.data } });
+            } else {
+                console.error("Failed to submit quiz data.");
+            }
+        } catch (error) {
+            console.error("Error submitting quiz data:", error);
+        }
     };
 
     return (
@@ -166,28 +151,38 @@ export default function LearningStyleForm(): React.JSX.Element {
                     <h2 className="card-title text-center mb-4">Test Stylu Uczenia się</h2>
 
                     <form onSubmit={handleSubmit}>
-                        {questions.map((q) => (
-                            <div key={q.id} className="mb-4">
-                                <p className="fw-bold">{q.text}</p>
-                                <div className="d-flex flex-column">
-                                    {q.options.map((opt) => (
-                                        <div className="form-check" key={opt.letter}>
-                                            <input
-                                                className="form-check-input"
-                                                type="checkbox"
-                                                name={`q-${q.id}`}
-                                                value={opt.letter}
-                                                onChange={() => handleChange(q.id, opt.style)}
-                                                checked={responses[q.id]?.includes(opt.style) || false}
-                                            />
-                                            <label className="form-check-label">
-                                                {opt.letter}. {opt.text}
-                                            </label>
-                                        </div>
-                                    ))}
+                        {questions.length > 0 ? (
+                            questions.map((q) => (
+                                <div key={q.id} className="mb-4">
+                                    <p className="fw-bold">{q.text}</p>
+                                    <div className="d-flex flex-column">
+                                        {q.options.map((opt) => (
+                                            <div className="form-check" key={opt.letter}>
+                                                <input
+                                                    className="form-check-input"
+                                                    type="checkbox"
+                                                    name={`q-${q.id}`}
+                                                    value={opt.letter}
+                                                    onChange={() => handleChange(q.id, opt.style)}
+                                                    checked={responses[q.id]?.includes(opt.style) || false}
+                                                />
+                                                <label className="form-check-label">
+                                                    {opt.letter}. {opt.text}
+                                                </label>
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
+                            ))
+                        ) : (
+                            <p>Loading quiz questions...</p>
+                        )}
+
+                        {formError && (
+                            <div className="alert alert-danger mt-3" role="alert">
+                                {formError}
                             </div>
-                        ))}
+                        )}
 
                         <div className="text-center">
                             <button type="submit" className="btn btn-primary">
