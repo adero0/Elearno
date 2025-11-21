@@ -9,6 +9,9 @@ export default function MainPage() {
             <Link to="/quiz" className="btn btn-primary">
                 Go to Quiz
             </Link>
+            <Link to="/materials" className="btn btn-secondary ms-2">
+                View Learning Materials
+            </Link>
         </div>
     );
 }

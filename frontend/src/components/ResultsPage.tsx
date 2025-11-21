@@ -1,5 +1,4 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
 
 // Define the AppUser type
 interface AppUser {
@@ -12,10 +11,7 @@ interface AppUser {
     // Add other fields as necessary
 }
 
-export default function ResultsPage() {
-    const location = useLocation();
-    const user = location.state?.user as AppUser;
-
+export default function ResultsPage({ user }: { user: AppUser | null }) {
     if (!user) {
         return (
             <div className="container mt-5 text-center">

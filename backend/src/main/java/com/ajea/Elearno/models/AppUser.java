@@ -2,14 +2,10 @@ package com.ajea.Elearno.models;
 
 import com.ajea.Elearno.models.enums.LearningStyle;
 import com.ajea.Elearno.models.enums.UserRole;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.Set;
 
 
 @Entity
@@ -35,4 +31,12 @@ public class AppUser {
     private int auditory;
 
     private boolean hasTakenQuiz = false;
+
+    @ManyToMany
+    @JoinTable(
+            name = "learning_material_completed",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "material_id")
+    )
+    private Set<LearningMaterial> completedMaterials;
 }

@@ -6,6 +6,8 @@ import QuizPage from './components/QuizPage';
 import ResultsPage from './components/ResultsPage';
 import LoginPage from './components/LoginPage';
 import RegisterPage from './components/RegisterPage';
+import LearningMaterialsPage from './components/LearningMaterialsPage';
+import MaterialViewPage from './components/MaterialViewPage';
 
 // Define the AppUser type
 interface AppUser {
@@ -40,7 +42,15 @@ function App() {
                 />
                 <Route
                     path="/results"
-                    element={user ? <ResultsPage /> : <Navigate to="/login" />}
+                    element={user ? <ResultsPage user={user} /> : <Navigate to="/login" />}
+                />
+                <Route
+                    path="/materials"
+                    element={user ? <LearningMaterialsPage user={user} /> : <Navigate to="/login" />}
+                />
+                <Route
+                    path="/materials/:id"
+                    element={user ? <MaterialViewPage /> : <Navigate to="/login" />}
                 />
             </Routes>
         </Router>

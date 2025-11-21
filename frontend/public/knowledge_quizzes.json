@@ -1,0 +1,93 @@
+{
+  "algebra_quiz_1": {
+    "title": "Algebra Basics Quiz",
+    "questions": [
+      {
+        "id": 1,
+        "text": "What is 'x' in the equation: x + 5 = 10?",
+        "options": [
+          {
+            "id": "a",
+            "text": "3"
+          },
+          {
+            "id": "b",
+            "text": "5"
+          },
+          {
+            "id": "c",
+            "text": "10"
+          }
+        ],
+        "correctAnswer": "b"
+      },
+      {
+        "id": 2,
+        "text": "What is 2 * (3 + 4)?",
+        "options": [
+          {
+            "id": "a",
+            "text": "10"
+          },
+          {
+            "id": "b",
+            "text": "14"
+          },
+          {
+            "id": "c",
+            "text": "24"
+          }
+        ],
+        "correctAnswer": "b"
+      }
+    ]
+  },
+  "rome_quiz_1": {
+    "title": "Ancient Rome Quiz",
+    "questions": [
+      {
+        "id": 1,
+        "text": "Who was the first emperor of Rome?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Julius Caesar"
+          },
+          {
+            "id": "b",
+            "text": "Augustus"
+          },
+          {
+            "id": "c",
+            "text": "Nero"
+          }
+        ],
+        "correctAnswer": "b"
+      }
+    ]
+  },
+  "chair_quiz_1": {
+    "title": "Woodworking Quiz",
+    "questions": [
+      {
+        "id": 1,
+        "text": "What is the most common type of wood used for chairs?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Oak"
+          },
+          {
+            "id": "b",
+            "text": "Pine"
+          },
+          {
+            "id": "c",
+            "text": "Maple"
+          }
+        ],
+        "correctAnswer": "a"
+      }
+    ]
+  }
+}
